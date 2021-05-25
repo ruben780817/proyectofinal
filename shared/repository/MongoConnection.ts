@@ -13,7 +13,7 @@ export class MongoConnection {
     static getConnection() {
         if (!MongoConnection.client) {
             console.log(process.env.MONGO_URL);
-            MongoConnection.client = new MongoClient(process.env.MONGO_URL);
+            MongoConnection.client = new MongoClient(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
             MongoConnection.instance = new MongoConnection();
         }
         return MongoConnection.instance;

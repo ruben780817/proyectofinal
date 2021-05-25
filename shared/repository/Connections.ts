@@ -9,11 +9,16 @@ export class PostgresConnection {
 
     static getConnection() {
         if (!PostgresConnection.connection) {
+            console.log(process.env.DB_USER);
+            
             PostgresConnection.connection = new Pool({
                 host: process.env.DB_HOST,
                 password: process.env.DB_PASS,
                 database: process.env.DB_NAME,
-                user: process.env.DB_USER
+                user: process.env.DB_USER,
+                ssl: {
+                    rejectUnauthorized: false,
+                  }
             });
             PostgresConnection._instance = new PostgresConnection();
         }
@@ -23,7 +28,9 @@ export class PostgresConnection {
     connect() {
         return PostgresConnection.connection.connect((err, client) => {
             if (err) {
-                throw new Error("BAD CONNECTION");
+                console.log(err);
+                
+                throw new Error("BAD CONNECTION POSTGRES");
             }
             this.client = client;
         })

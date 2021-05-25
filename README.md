@@ -18,4 +18,8 @@ En UserApplication se define la lógica intermedia entre el repositorio y el con
 además de persistir datos, iría en la capa de aplicación.
 
 Para realizar la conexión con la DB se utilizaron Singlethon, aplicando static, private, etc.
- 
+
+COLECCIÓN DE POSTMAN:
+https://www.getpostman.com/collections/1fc95d82d2436ba32b96
+
+Importas la colección, con el botón de "IMPORT", seguido de "Link", e ingresar URL en el campo y presionar Continuar
