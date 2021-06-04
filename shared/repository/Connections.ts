@@ -30,13 +30,13 @@ export class PostgresConnection {
             if (err) {
                 console.log(err);
                 
-                throw new Error("BAD CONNECTION POSTGRES");
+                throw new Error("MALA CONEXION POSTGRES");
             }
             this.client = client;
         })
     }
 
-    execute(sql: string, values: string[] = []) {
+    execute(sql: string, values: any[] = []) {
         return this.client.query({
             text: sql,
             values

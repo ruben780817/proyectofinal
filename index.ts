@@ -5,6 +5,9 @@ import { PostgresConnection } from './shared/repository/Connections';
 import dotenv from 'dotenv';
 import { usersMongoRouter } from './users/controller/UsersMongoController';
 import { MongoConnection } from './shared/repository/MongoConnection';
+import { productsRouter } from './Productos/Controles/productscontrolers'
+import { clientesRouter } from './Clientes/Controles/ClientesControlers'
+
 
 dotenv.config();
 
@@ -48,6 +51,8 @@ async function main() {
         //response.status(401).send({ message: 'PROHIBIDO' })
     });
     
+    app.use(productsRouter);
+    app.use(clientesRouter);
     app.use(usersRouter);
     app.use(usersMongoRouter);
     
